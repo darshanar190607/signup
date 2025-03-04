@@ -1,0 +1,102 @@
+/**{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body { 
+
+    display: flex; 
+
+    align-items: center; 
+
+    justify-content: center; 
+
+    height: 100vh; 
+
+    background: linear-gradient(to right, #141e30, #243b55); 
+
+    font-family: Arial, sans-serif; 
+
+} 
+
+.auth-container { 
+
+    position: relative; 
+
+    width: 400px; 
+
+    background: white; 
+
+    border-radius: 10px; 
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+
+    padding: 2rem; 
+
+} 
+
+.form-container { 
+
+    text-align: center; 
+
+    transition: transform 0.5s ease-in-out; 
+
+} 
+
+.sign-in-form, .sign-up-form { 
+
+    display: none; 
+
+} 
+
+.sign-in-form.active, .sign-up-form.active { 
+
+    display: block; 
+
+} 
+
+.input-field { 
+
+    width: 100%; 
+
+    padding: 10px; 
+
+    margin: 10px 0; 
+
+    border: 1px solid #ccc; 
+
+    border-radius: 5px; 
+
+} 
+
+.btn { 
+
+    background: #2575fc; 
+
+    color: white; 
+
+    border: none; 
+
+    padding: 10px 20px; 
+
+    cursor: pointer; 
+
+    border-radius: 5px; 
+
+    margin-top: 10px; 
+
+} 
+
+.toggle-text { 
+
+    margin-top: 10px; 
+
+} 
+
+.toggle-text a { 
+
+    color: #2575fc; 
+
+    cursor: pointer; 
+
+} */

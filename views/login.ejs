@@ -1,0 +1,118 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Auth UI</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body {
+      background: linear-gradient(90deg, #3498db, #2ecc71, #e74c3c, #9b59b6, #fd79a8, #8e44ad);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 50% 100%; }
+      50% { background-position: 100% 50%; }
+      75% { background-position: 50% 0%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .auth-container {
+      background-color: white;
+      color: black;
+      border-radius: 15px;
+      text-align: center;
+      width: 400px;
+      padding: 20px 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .title {
+      margin-bottom: 20px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #9b59b6;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #512066;
+      transition: background-color 0.3s ease;
+    }
+
+    .toggle-text {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="form-container">
+      <!-- Sign-In Form -->
+      <form id="sign-in-form" action="/signin" method="POST" class="sign-in-form active">
+        <h2 class="title">Sign In</h2> 
+        <% if (typeof errorMessage !== "undefined" && errorMessage) { %>
+          <p class="error-message"><%= errorMessage %></p>
+        <% } %>
+        <input type="email" name="email" placeholder="Email" class="input-field" required />
+        <input type="password" name="password" placeholder="Password" class="input-field" required /> 
+        <button type="submit" class="btn">Sign In</button> 
+        <p class="toggle-text">New here? <a href="#" onclick="toggleForms()">Sign Up</a></p> 
+      </form>
+
+      <!-- Sign-Up Form with Email Submission to FormSubmit -->
+        <h2 class="title">Sign Up</h2>
+        <input type="text" name="username" placeholder="Full Name" class="input-field" required />
+        <input type="email" name="email" placeholder="Email" class="input-field" required />
+        <input type="password" name="password" placeholder="Password" class="input-field" required />
+        
+        <!-- Hidden input to redirect after submission -->
+        <input type="hidden" name="_next" value="http://localhost:5000/signup-success" />
+        <button type="submit" class="btn">Sign Up</button>
+        <p class="toggle-text">Already have an account? <a href="#" onclick="toggleForms()">Sign In</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function toggleForms() {
+      const signInForm = document.getElementById('sign-in-form');
+      const signUpForm = document.getElementById('sign-up-form');
+      signInForm.style.display = signInForm.style.display === 'none' ? 'block' : 'none';
+      signUpForm.style.display = signUpForm.style.display === 'none' ? 'block' : 'none';
+      
+    }
+  </script>
+</body>
+</html>
